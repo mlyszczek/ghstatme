@@ -61,3 +61,18 @@ Sure thing::
     cat $db_path/$user/$repo/2023-{{1..3},6} | tr ' ' ','
 
 Use shell globbing and pipes for your advantage!
+
+dependencies
+------------
+
+Project only needs githubpy https://github.com/michaelliao/githubpy to work.
+
+I cannot into pip, so I only provide instructions to install it manully::
+
+    git clone https://github.com/mlyszczek/ghstatme.git
+    cd ghstatme
+    python -m venv .venv
+    source .venv/bin/activate
+    pip install githubpy
+
+done
