@@ -38,13 +38,15 @@ def collect(user, repo, token):
 	# views and clones are too similar and yet to different in format,
 	# we need to run custom loop to merge them together
 	for view in views['views']:
-		timestamp = view['timestamp']
+		# convert long timestamp in short YYYY-mm-dd format
+		timestamp = view['timestamp'][0:10]
 		if timestamp not in db.keys():
 			db[timestamp] = {}
 		db[timestamp]["vuniqs"] = view['uniques']
 		db[timestamp]["vcount"] = view['count']
 	for clone in clones['clones']:
-		timestamp = clone['timestamp']
+		# convert long timestamp in short YYYY-mm-dd format
+		timestamp = clone['timestamp'][0:10]
 		if timestamp not in db.keys():
 			db[timestamp] = {}
 		db[timestamp]["cuniqs"] = clone['uniques']
